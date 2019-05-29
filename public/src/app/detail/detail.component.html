@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<div class="container">
+  <div class="row">
+    <div class="col-5"><h4>Details about {{thisPet.name}} </h4>
+    </div>
+    <div class="col-5"><a  [routerLink]="['/pets']">Home</a>
+    </div>
+    
+  </div>
+  <h6>Pet type : {{thisPet.type}}</h6>
+  <h6>Description : {{thisPet.description}}</h6>
+  <h6>Skills : {{thisPet.skill}}</h6>
+</div>
+<br>
+<div class="container" >
+    <div class="col-5"><button type="button" (click)="deleteAPet(thisPet._id)" [routerLink]="['/pets']">Adopt this pet!</button></div>
+</div>

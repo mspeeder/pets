@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="container">
+  <div class="col-5"><h5>These pets are looking for a home!</h5></div>
+  <div class="col-5"><a [routerLink]="['/pets/new']">Add a pet to the shelter</a></div>
+</div>
+  <br>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let pet of pets">
+        <tr>
+          <td>{{pet.name}}</td>
+          <td >{{pet.type}}</td>
+          <td><button class="btn btn-outline-secondary" type="button" [routerLink]="['/pets', pet._id]">Details</button>&nbsp; <button class="btn btn-outline-primary"type="button" [routerLink]="['/pets', pet._id,'edit']">Edit</button></td>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
