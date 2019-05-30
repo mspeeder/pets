@@ -10,6 +10,7 @@ import { HttpService } from '../http.service';
 export class EditComponent implements OnInit {
   updatePet;
   show = false;  //***
+  id;
 
   constructor(
     private _route: ActivatedRoute,
@@ -21,6 +22,7 @@ export class EditComponent implements OnInit {
     this.updatePet = {"name":"","type":"","description":"","skill":""}
     this._route.params.subscribe((params: Params) => {
       console.log(params['id']);
+      this.id = params['id'];
       let observable = this._httpService.getAPet(params['id']);
       observable.subscribe(data => {
         this.updatePet = data['pet'];
@@ -34,7 +36,7 @@ export class EditComponent implements OnInit {
   updateAPet() {
     // Code to send off the form data (this.newTask) to the Service and the json data came back and assign to observable
     console.log(this.updatePet,"$$$$$")
-    let observable = this._httpService.updateAPet(this.updatePet);
+    let observable = this._httpService.updateAPet(this.updatePet,this.id);
     observable.subscribe(data => {
       console.log("Updating pet", data);
       this._router.navigate(['/pets', this.updatePet._id]);

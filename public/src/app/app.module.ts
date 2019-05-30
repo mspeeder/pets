@@ -11,7 +11,7 @@ import { PetsComponent } from './pets/pets.component';
 import { NewComponent } from './new/new.component';
 import { DetailComponent } from './detail/detail.component';
 import { EditComponent } from './edit/edit.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+
 import { NofoundComponent } from './nofound/nofound.component';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { NofoundComponent } from './nofound/nofound.component';
     NewComponent,
     DetailComponent,
     EditComponent,
-    NotFoundComponent,
+    
     NofoundComponent
   ],
   imports: [

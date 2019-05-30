@@ -29,16 +29,33 @@ module.exports = {
 
     updataPet: (req,res) => {
         //Task.update({_id:req.body.id}, {title:req.body.title}, function(err,data) {
-        Pet.update({name:req.body.name, type:req.body.type, description:req.body.description, skill:req.body.skill}, function(err,data) {
-            if(err|| data == null ) {
-                console.log("Something went wrong when update")
-                res.json({message: "Error", error: err})
-            } else {
-                console.log("Successfully updated a pet")
-                res.json({message: "Success", data:data})
-            }
-    
+
+        Pet.findOne({_id:req.params.id}, (err, petOld) => {
+            petOld.name = req.body.name;
+            petOld.type = req.body.type;
+            petOld.description = req.body.description;
+            petOld.skill = req.body.skill;
+            petOld.save((err, petNew) => {
+                if(err) {
+                    console.log(err)
+                    res.json({message: "Error", error: err})
+                } else {
+                    res.json({message: "Success", data:petNew})
+                }
+            })
+
         });
+
+        // Pet.update({name:req.body.name, type:req.body.type, description:req.body.description, skill:req.body.skill}, function(err,data) {
+        //     if(err|| data == null ) {
+        //         console.log("Something went wrong when update")
+        //         res.json({message: "Error", error: err})
+        //     } else {
+        //         console.log("Successfully updated a pet")
+        //         res.json({message: "Success", data:data})
+        //     }
+    
+        // });
     },
 
     getAPet: (req,res) => {
