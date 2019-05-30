@@ -20,7 +20,6 @@ import { NofoundComponent } from './nofound/nofound.component';
     NewComponent,
     DetailComponent,
     EditComponent,
-    NofoundComponent
   ],
   imports: [
     BrowserModule,
