@@ -18,10 +18,10 @@ export class HttpService {
     return this._http.get('/api/pets')
   };
 
-  updateAPet(data,id) {
-    console.log(id);
+  updateAPet(data) {
+   
     console.log(data, "***inside service");
-    return this._http.put(`/api/pet/${id}`,data);
+    return this._http.put('/api/pet',data);
   }
   
   getAPet(id) {

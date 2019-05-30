@@ -16,7 +16,7 @@ module.exports = function(app) {
     });
 
     // update pet 
-    app.put("/api/pet/:id", (req, res) => { 
+    app.put("/api/pet", (req, res) => { 
         console.log(req.body,"*****");
         pets.updataPet(req,res);
     });
