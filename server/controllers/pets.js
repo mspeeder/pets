@@ -44,7 +44,7 @@ module.exports = {
         //         res.json({message: "Success", data:data})
         //     }
     
-        // });
+        });
     },
 
     getAPet: (req,res) => {
